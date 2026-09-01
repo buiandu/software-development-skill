@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agentskills.io/schema/skills.json",
+  "name": "kanban-task-breakdown-repo",
+  "version": "1.0.0",
+  "description": "Repository containing standard Work Breakdown Structure (WBS) & Kanban Ticket Creation skills for AI coding agents.",
+  "skills": [
+    {
+      "name": "kanban-task-breakdown",
+      "path": "skills/kanban-task-breakdown",
+      "description": "Break down features into standardized Trello/Kanban tickets using WBS principles, 7-component card structure, and status workflows."
+    }
+  ]
+}
