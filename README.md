@@ -15,22 +15,87 @@ A collection of open [Agent Skills](https://agentskills.io) compliant capabiliti
 
 ---
 
-## Quick Installation
+## Installation & Setup
 
 Install using the open agent skills CLI (`npx skills`):
 
+### Project-Level Installation (Recommended for Teams)
+
+Installs to `.agents/skills/` (shared by universal agents) and creates symlinks for agent-specific directories:
+
 ```bash
-# Install all skills in this repo to your project (.agents/skills/)
+# Install all skills in this repository to your current project
 npx skills add <your-github-username>/software-development-helper-skills
 
-# Install specific skill to project
+# Install a specific skill only
 npx skills add <your-github-username>/software-development-helper-skills --skill kanban-task-breakdown
 
-# Install globally (available across all projects)
-npx skills add <your-github-username>/software-development-helper-skills -g
-
-# Target specific agent
+# Target specific agents explicitly
 npx skills add <your-github-username>/software-development-helper-skills -a claude-code -a cursor
+```
+
+### Global Installation (User-Level)
+
+Installs to your home directory so skills are available across all local projects:
+
+```bash
+npx skills add <your-github-username>/software-development-helper-skills -g
+```
+
+---
+
+## How to Update Installed Skills
+
+When improvements or new skills are committed to this repository, update your local skills using these commands:
+
+### 1. Updating Project Skills
+
+Re-run `npx skills add` to pull the latest version from GitHub:
+
+```bash
+# Update all skills in the project
+npx skills add <your-github-username>/software-development-helper-skills
+
+# Update a single skill
+npx skills add <your-github-username>/software-development-helper-skills --skill kanban-task-breakdown
+```
+
+> **Symlink Mode (Default):** Updating `.agents/skills/` instantly updates all connected agents (Claude Code, Cursor, OpenCode, etc.) without extra configuration.
+
+### 2. Updating Global Skills
+
+```bash
+npx skills add <your-github-username>/software-development-helper-skills -g
+```
+
+### 3. Listing & Managing Installed Skills
+
+```bash
+# List all skills installed in current project
+npx skills ls
+
+# List global skills
+npx skills ls -g
+
+# Filter by agent
+npx skills ls -a cursor
+
+# Remove a skill
+npx skills rm kanban-task-breakdown
+```
+
+---
+
+## Team & CI/CD Workflows
+
+### Option A: Commit `.agents/skills/` (Zero Setup for Teammates)
+Commit the `.agents/skills/` directory to git. When team members clone the repo, universal agents (Cursor, OpenCode, Codex, GitHub Copilot) will discover and use the skills automatically.
+
+### Option B: Reproducible Installs via Lockfile
+Use `.skills.json` and `skills-lock.json` to lock skill versions across your team or CI/CD pipelines:
+
+```bash
+npx skills experimental_install
 ```
 
 ---
@@ -49,6 +114,7 @@ software-development-helper-skills/
 │       └── assets/                 # Copy-paste resources
 │           └── card-template.md    # Markdown ticket creation template
 ├── .skills.json                    # Ecosystem package manifest
+├── CHANGELOG.md                    # Release history and version tracking
 ├── README.md                       # Repository documentation
 └── LICENSE                         # MIT License
 ```
@@ -57,7 +123,7 @@ software-development-helper-skills/
 
 ## Features
 
-- **Work Breakdown Structure (WBS):** Applies the 3 I's Rule (Independent, Testable, Sizable $\le 8$h) to split complex features into small, parallelizable technical tasks.
+- **Work Breakdown Structure (WBS):** Applies the 3 I's Rule (Independent, Testable, Sizable <= 8h) to split complex features into small, parallelizable technical tasks.
 - **Standardized 7-Component Card Formatting:** Ensures every card includes Git Metadata, Technical Scope, Goal, Input, Output, Acceptance Criteria (AC), and Scope Control.
 - **Status Lifecycle Governance:** Clearly defines rules for `Backlog/Hold`, `Ready (DoR)`, `In Progress`, `Review/Testing`, and `Done (DoD)`.
 - **Cross-Agent Compatibility:** Works natively across Claude Code, Cursor, OpenCode, GitHub Copilot, Cline, Codex, and 70+ other agents.
