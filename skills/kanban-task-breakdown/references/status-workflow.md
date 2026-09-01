@@ -29,13 +29,13 @@ This document outlines the column lifecycle for tickets on the Kanban board, inc
   - [ ] Technical scope explicitly identifies affected files/tables.
   - [ ] Inputs are fully available (specs finalized, designs approved, blockers merged).
   - [ ] Acceptance criteria contain verifiable checkboxes for happy path and error states.
-  - [ ] Size estimation is complete and fits within $\le 8$ hours.
+  - [ ] Size estimation is complete and fits within <= 8 hours.
   - [ ] Out-of-scope boundaries are defined.
 
 ### 3. In Progress
 - **Description:** Active development by an assigned engineer.
 - **Rules:**
-  - WIP (Work In Progress) Limit: Maximum **1–2 tasks per developer** simultaneously.
+  - WIP (Work In Progress) Limit: Maximum **1-2 tasks per developer** simultaneously.
   - Developer must create git branch matching `Git Metadata` component.
 
 ### 4. Review / Testing

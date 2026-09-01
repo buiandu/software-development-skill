@@ -1,8 +1,8 @@
 {
   "$schema": "https://agentskills.io/schema/skills.json",
-  "name": "kanban-task-breakdown-repo",
+  "name": "software-development-helper-skills",
   "version": "1.0.0",
-  "description": "Repository containing standard Work Breakdown Structure (WBS) & Kanban Ticket Creation skills for AI coding agents.",
+  "description": "A collection of production-grade agent skills for software engineering tasks, project management, and development workflows.",
   "skills": [
     {
       "name": "kanban-task-breakdown",

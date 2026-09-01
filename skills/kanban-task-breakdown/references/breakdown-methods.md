@@ -9,31 +9,31 @@ This document provides detailed guidelines and strategies for breaking down soft
 | Dimension | Feature (FXX) | Task (XXX) |
 |-----------|---------------|------------|
 | **Scope** | Business goal / User capability | Single technical execution unit |
-| **Duration** | Few days to several weeks | $\le 1$ working day (5–8 hours max) |
+| **Duration** | Few days to several weeks | <= 1 working day (5-8 hours max) |
 | **Audience** | Product Manager, Stakeholders, Users | Developers, Tech Leads, QA Testers |
 | **Example** | GPU Node Auto-Registration System | Write POST `/agents/register` API endpoint |
 
 ---
 
-## The 3 I's Breakdown Principles (Rule of 3Đ)
+## The 3 I's Breakdown Principles (3D Rule)
 
-### 1. Independent (Độc lập)
+### 1. Independent
 - Each task should be implementable with minimal dependency on parallel tasks in the same sprint.
 - Enable multiple developers to work concurrently without code conflicts.
 - *Technique:* Use interfaces, contract stubs, or mock data to decouple backend and frontend work.
 
-### 2. Testable / Measurable (Đo lường được)
+### 2. Testable / Measurable
 - QA/Testers can verify completion as soon as the task PR is merged.
 - Do not wait for the entire feature to complete before performing test validation.
 - Every task must produce measurable output (API return code, unit test pass, UI element rendered).
 
-### 3. Sizable / Quantifiable (Định lượng được)
+### 3. Sizable / Quantifiable
 - Estimate time required accurately before pulling into a sprint.
 - Size limits:
-  - **S (Small):** $\le 2$ hours
-  - **M (Medium):** 3–5 hours
-  - **L (Large):** 6–8 hours
-- **Mandatory Rule:** Any task estimated $> 8$ hours MUST be split into two or more smaller tasks.
+  - **S (Small):** <= 2 hours
+  - **M (Medium):** 3-5 hours
+  - **L (Large):** 6-8 hours
+- **Mandatory Rule:** Any task estimated > 8 hours MUST be split into two or more smaller tasks.
 
 ---
 
