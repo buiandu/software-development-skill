@@ -104,19 +104,33 @@ npx skills experimental_install
 
 ```
 software-development-helper-skills/
+├── .github/
+│   ├── CODEOWNERS                    # Auto-assign reviewers
+│   ├── ISSUE_TEMPLATE/               # Issue templates
+│   │   ├── bug_report.md
+│   │   ├── feature_request.md
+│   │   ├── new_skill_proposal.md
+│   │   └── skill_improvement.md
+│   ├── pull_request_template.md      # PR template
+│   └── workflows/
+│       └── ci.yml                    # CI validation pipeline
 ├── skills/
-│   └── kanban-task-breakdown/      # Skill: Kanban Task Breakdown & WBS
-│       ├── SKILL.md                # Core instructions & spec-compliant frontmatter
-│       ├── references/             # In-depth reference materials (loaded on demand)
-│       │   ├── breakdown-methods.md# WBS strategies (Layer-based, Vertical, Data/Config)
-│       │   ├── ticket-structure.md # Standard 7-component ticket guide
-│       │   └── status-workflow.md  # Status lifecycle, DoR, DoD definitions
-│       └── assets/                 # Copy-paste resources
-│           └── card-template.md    # Markdown ticket creation template
-├── .skills.json                    # Ecosystem package manifest
-├── CHANGELOG.md                    # Release history and version tracking
-├── README.md                       # Repository documentation
-└── LICENSE                         # MIT License
+│   └── kanban-task-breakdown/        # Skill: Kanban Task Breakdown & WBS
+│       ├── SKILL.md                  # Core instructions & spec-compliant frontmatter
+│       ├── references/               # In-depth reference materials (loaded on demand)
+│       │   ├── breakdown-methods.md  # WBS strategies (Layer-based, Vertical, Data/Config)
+│       │   ├── ticket-structure.md   # Standard 7-component ticket guide
+│       │   └── status-workflow.md    # Status lifecycle, DoR, DoD definitions
+│       └── assets/                   # Copy-paste resources
+│           ├── card-template-less.md     # Condensed template
+│           ├── card-template-normal.md   # Standard template (default)
+│           └── card-template-fully.md    # Comprehensive template
+├── .skills.json                      # Ecosystem package manifest
+├── CHANGELOG.md                      # Release history and version tracking
+├── CONTRIBUTING.md                   # Contribution guidelines
+├── README.md                         # Repository documentation
+├── SECURITY.md                       # Security policy
+└── LICENSE                           # MIT License
 ```
 
 ---
@@ -149,6 +163,31 @@ The agent will load `SKILL.md` and generate standard 7-component tickets like:
 
 ...
 ```
+
+---
+
+## Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
+
+- Improving existing skills
+- Adding new skills
+- Reporting bugs and requesting features
+- Commit message conventions
+- Testing and validation
+
+### Quick Links
+
+- [Open a Bug Report](https://github.com/buiandu/software-development-skill/issues/new?template=bug_report.md)
+- [Request a Feature](https://github.com/buiandu/software-development-skill/issues/new?template=feature_request.md)
+- [Propose a Skill Improvement](https://github.com/buiandu/software-development-skill/issues/new?template=skill_improvement.md)
+- [Propose a New Skill](https://github.com/buiandu/software-development-skill/issues/new?template=new_skill_proposal.md)
+
+---
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting and supported versions.
 
 ---
 

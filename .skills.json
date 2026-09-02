@@ -1,13 +1,13 @@
 {
   "$schema": "https://agentskills.io/schema/skills.json",
   "name": "software-development-helper-skills",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A collection of production-grade agent skills for software engineering tasks, project management, and development workflows.",
   "skills": [
     {
       "name": "kanban-task-breakdown",
       "path": "skills/kanban-task-breakdown",
-      "description": "Break down features into standardized Trello/Kanban tickets using WBS principles, 7-component card structure, and status workflows."
+      "description": "Break down features into standardized Trello/Kanban tickets using WBS principles, 7-component card structure, and status workflows. Supports detailed_mode parameter (less|normal|fully) for output verbosity control."
     }
   ]
 }

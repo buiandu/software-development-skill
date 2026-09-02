@@ -1,0 +1,160 @@
+name: CI - Validate Skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-skills:
+    name: Validate Skill Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli2
+
+      - name: Lint all Markdown files
+        run: markdownlint-cli2 "**/*.md"
+
+      - name: Validate skill directories exist
+        run: |
+          for skill in $(jq -r '.skills[].path' .skills.json); do
+            if [ ! -d "$skill" ]; then
+              echo "::error::Skill directory not found: $skill"
+              exit 1
+            fi
+            if [ ! -f "$skill/SKILL.md" ]; then
+              echo "::error::SKILL.md not found in: $skill"
+              exit 1
+            fi
+          done
+          echo "All skill directories validated"
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          for skill in $(jq -r '.skills[].path' .skills.json); do
+            echo "Checking $skill/SKILL.md..."
+            # Check required frontmatter fields
+            if ! grep -q "^name:" "$skill/SKILL.md"; then
+              echo "::error::$skill/SKILL.md missing 'name' in frontmatter"
+              exit 1
+            fi
+            if ! grep -q "^description:" "$skill/SKILL.md"; then
+              echo "::error::$skill/SKILL.md missing 'description' in frontmatter"
+              exit 1
+            fi
+            if ! grep -q "^license:" "$skill/SKILL.md"; then
+              echo "::error::$skill/SKILL.md missing 'license' in frontmatter"
+              exit 1
+            fi
+            if ! grep -q "^metadata:" "$skill/SKILL.md"; then
+              echo "::error::$skill/SKILL.md missing 'metadata' section"
+              exit 1
+            fi
+            if ! grep -q "version:" "$skill/SKILL.md"; then
+              echo "::error::$skill/SKILL.md missing 'version' in metadata"
+              exit 1
+            fi
+          done
+          echo "All SKILL.md frontmatter validated"
+
+      - name: Validate .skills.json matches skill directories
+        run: |
+          # Check each skill in .skills.json has a directory
+          jq -r '.skills[].path' .skills.json | while read path; do
+            if [ ! -d "$path" ]; then
+              echo "::error::Skill path in .skills.json not found: $path"
+              exit 1
+            fi
+          done
+
+          # Check each skill directory has entry in .skills.json
+          for dir in skills/*/; do
+            skill_name=$(basename "$dir")
+            if ! jq -e ".skills[] | select(.path == \"$dir\")" .skills.json > /dev/null; then
+              echo "::error::Skill directory not in .skills.json: $dir"
+              exit 1
+            fi
+          done
+          echo ".skills.json matches skill directories"
+
+      - name: Check internal links in README.md
+        run: |
+          # Extract markdown links from README.md and verify they exist
+          grep -oE '\(([^)]+\.md)\)' README.md | sed 's/[()]//g' | while read link; do
+            if [ ! -f "$link" ]; then
+              echo "::warning::Broken link in README.md: $link"
+            fi
+          done
+
+      - name: Check internal links in SKILL.md files
+        run: |
+          for skill in $(jq -r '.skills[].path' .skills.json); do
+            grep -oE '\(([^)]+\.md)\)' "$skill/SKILL.md" | sed 's/[()]//g' | while read link; do
+              # Resolve relative to skill directory
+              full_path="$skill/$link"
+              if [ ! -f "$full_path" ]; then
+                echo "::warning::Broken link in $skill/SKILL.md: $link (resolved: $full_path)"
+              fi
+            done
+          done
+
+  test-templates:
+    name: Test Template Rendering
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Test kanban-task-breakdown templates
+        run: |
+          for template in skills/kanban-task-breakdown/assets/card-template-*.md; do
+            echo "Testing $template..."
+            # Basic markdown syntax check
+            if ! head -1 "$template" | grep -q "^###"; then
+              echo "::error::$template should start with '### Title Format'"
+              exit 1
+            fi
+            # Check required sections exist
+            for section in "Git Metadata" "Technical Scope" "Goal" "Input" "Output" "Acceptance Criteria" "Scope"; do
+              if ! grep -q "$section" "$template"; then
+                echo "::error::$template missing section: $section"
+                exit 1
+              fi
+            done
+            echo "$template: OK"
+          done
+          echo "All templates validated"
+
+  check-changelog:
+    name: Check CHANGELOG.md
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate CHANGELOG format
+        run: |
+          # Check for Unreleased section
+          if ! grep -q "## \[Unreleased\]" CHANGELOG.md; then
+            echo "::error::CHANGELOG.md missing '## [Unreleased]' section"
+            exit 1
+          fi
+          # Check version format (semver)
+          if ! grep -Eq "## \[v?[0-9]+\.[0-9]+\.[0-9]+\]" CHANGELOG.md; then
+            echo "::warning::CHANGELOG.md may be missing versioned entries"
+          fi
+          echo "CHANGELOG.md format OK"

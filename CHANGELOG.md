@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased]
+
+### Added
+- GitHub contribution setup: PR template, issue templates (bug, feature, skill improvement, new skill), CODEOWNERS, CONTRIBUTING.md, SECURITY.md
+- GitHub Actions CI workflow (`.github/workflows/ci.yml`) with markdown linting, skill structure validation, link checking, and template testing
+- Repository documentation updates: Contributing and Security sections in README.md
+
+### Changed
+- `kanban-task-breakdown` skill version bumped to 1.1.0
+- Added `detailed_mode` parameter (`less` | `normal` | `fully`) to control template verbosity
+- Split `assets/card-template.md` into three templates:
+  - `card-template-less.md` - Condensed for quick tasks
+  - `card-template-normal.md` - Standard (default)
+  - `card-template-fully.md` - Comprehensive with risk assessment, rollback plans, monitoring, security, accessibility
+- Updated Execution Workflow in SKILL.md to select template based on `detailed_mode`
+
+---
+
 ## [1.0.0] - 2026-09-01
 
 ### Added

@@ -1,0 +1,20 @@
+# CODEOWNERS
+# These users/teams will be automatically requested for review when
+# changes are made to the matching paths.
+
+# Global owners - all PRs
+* @buiandu
+
+# Skill: kanban-task-breakdown
+/skills/kanban-task-breakdown/ @buiandu
+
+# Repository configuration
+/.github/ @buiandu
+/.skills.json @buiandu
+/README.md @buiandu
+/CHANGELOG.md @buiandu
+/CONTRIBUTING.md @buiandu
+/LICENSE @buiandu
+
+# Documentation
+/docs/ @buiandu
