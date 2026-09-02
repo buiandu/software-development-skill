@@ -5,8 +5,14 @@ license: MIT
 compatibility: Compatible with all agents adhering to the Agent Skills specification (Claude Code, Cursor, OpenCode, GitHub Copilot, Codex, etc.)
 metadata:
   author: open-skills
-  version: "1.0.0"
+  version: "1.1.0"
   category: project-management
+parameters:
+  - name: detailed_mode
+    type: string
+    enum: ["less", "normal", "fully"]
+    default: "normal"
+    description: Controls output verbosity for generated tickets. "less" = condensed template, "normal" = standard template, "fully" = comprehensive template with detailed examples, edge cases, risk assessment, monitoring, and rollback plans.
 ---
 
 # Skill: Work Breakdown Structure (WBS) & Standard Trello/Kanban Ticket Creation
@@ -28,8 +34,10 @@ Detailed reference files are available in `references/`:
 - `references/ticket-structure.md` - Complete 7-component structure guidelines and examples.
 - `references/status-workflow.md` - Definition of Ready (DoR), Definition of Done (DoD), and column rules.
 
-Copy-paste templates are available in `assets/`:
-- `assets/card-template.md` - Ready-to-use Markdown template for ticket creation.
+Copy-paste templates are available in `assets/` (select based on `detailed_mode` parameter):
+- `assets/card-template-less.md` - Condensed template for quick task creation
+- `assets/card-template-normal.md` - Standard template (default)
+- `assets/card-template-fully.md` - Comprehensive template with detailed examples, edge cases, risk assessment, monitoring, and rollback plans
 
 ---
 
@@ -67,7 +75,7 @@ Every card MUST follow this title format:
 6. **Acceptance Criteria (AC):** Checkbox items (`- [ ]`) covering happy path, edge cases, and error states.
 7. **Scope & Sprint Control:** Size estimate (`S` <= 2h, `M` 3-5h, `L` 6-8h) and explicit **Out of Scope** boundaries.
 
-*Use `assets/card-template.md` when creating cards.*
+*Use the appropriate template from `assets/` based on `detailed_mode` when creating cards.*
 
 ---
 
@@ -87,7 +95,18 @@ Every card MUST follow this title format:
 
 When activated to break down work or generate Kanban tickets:
 
-1. **Analyze Requirements:** Parse the input feature request. Select appropriate breakdown strategy (Layer-based, Vertical, Data/Config).
-2. **Apply 3 I's Rule:** Ensure every task is independent, testable, and sized <= 8 hours.
-3. **Generate Tickets:** Format each task strictly using the 7-component card structure and standard title formatting.
-4. **Validate DoR:** Check that all inputs, acceptance criteria, and technical scopes are completely specified before marking as `Ready`.
+1. **Read Parameters:** Check `detailed_mode` parameter (`less` | `normal` | `fully`, default: `normal`). Select corresponding template from `assets/`:
+   - `less` → `card-template-less.md`
+   - `normal` → `card-template-normal.md`
+   - `fully` → `card-template-fully.md`
+
+2. **Analyze Requirements:** Parse the input feature request. Select appropriate breakdown strategy (Layer-based, Vertical, Data/Config).
+
+3. **Apply 3 I's Rule:** Ensure every task is independent, testable, and sized <= 8 hours.
+
+4. **Generate Tickets:** Format each task strictly using the 7-component card structure and standard title formatting. Apply verbosity level from selected template:
+   - `less`: Minimal descriptions, essential checkboxes only
+   - `normal`: Standard descriptions with examples
+   - `fully`: Comprehensive details including risk assessment, rollback plans, monitoring, security, accessibility, and performance criteria
+
+5. **Validate DoR:** Check that all inputs, acceptance criteria, and technical scopes are completely specified before marking as `Ready`.
