@@ -12,6 +12,7 @@ A collection of open [Agent Skills](https://agentskills.io) compliant capabiliti
 | Skill | Description | Path |
 |-------|-------------|------|
 | **`kanban-task-breakdown`** | Break down features into standardized Trello/Kanban tickets using Work Breakdown Structure (WBS) principles, 7-component card structure, and status workflows. | `skills/kanban-task-breakdown` |
+| **`design-thinking`** | Facilitate the 5-step Design Thinking process (Empathize, Define, Ideate, Prototype, Test) to guide users from a vague problem to a validated solution, using HMW, SCAMPER, and Feedback Matrix frameworks. | `skills/design-thinking` |
 
 ---
 
@@ -115,16 +116,25 @@ software-development-helper-skills/
 │   └── workflows/
 │       └── ci.yml                    # CI validation pipeline
 ├── skills/
-│   └── kanban-task-breakdown/        # Skill: Kanban Task Breakdown & WBS
-│       ├── SKILL.md                  # Core instructions & spec-compliant frontmatter
+│   ├── kanban-task-breakdown/        # Skill: Kanban Task Breakdown & WBS
+│   │   ├── SKILL.md                  # Core instructions & spec-compliant frontmatter
+│   │   ├── references/               # In-depth reference materials (loaded on demand)
+│   │   │   ├── breakdown-methods.md  # WBS strategies (Layer-based, Vertical, Data/Config)
+│   │   │   ├── ticket-structure.md   # Standard 7-component ticket guide
+│   │   │   └── status-workflow.md    # Status lifecycle, DoR, DoD definitions
+│   │   └── assets/                   # Copy-paste resources
+│   │       ├── card-template-less.md     # Condensed template
+│   │       ├── card-template-normal.md   # Standard template (default)
+│   │       └── card-template-fully.md    # Comprehensive template
+│   └── design-thinking/              # Skill: Design Thinking Facilitator (5-step process)
+│       ├── SKILL.md                  # Core facilitation rules & execution workflow
 │       ├── references/               # In-depth reference materials (loaded on demand)
-│       │   ├── breakdown-methods.md  # WBS strategies (Layer-based, Vertical, Data/Config)
-│       │   ├── ticket-structure.md   # Standard 7-component ticket guide
-│       │   └── status-workflow.md    # Status lifecycle, DoR, DoD definitions
-│       └── assets/                   # Copy-paste resources
-│           ├── card-template-less.md     # Condensed template
-│           ├── card-template-normal.md   # Standard template (default)
-│           └── card-template-fully.md    # Comprehensive template
+│       │   ├── step-guides.md        # Full per-step facilitation scripts (Steps 0-5)
+│       │   └── frameworks.md         # HMW formula, SCAMPER, Feedback Matrix, Persona fields
+│       └── assets/                   # Copy-paste deliverable templates
+│           ├── user-persona-template.md     # Step 1 output (Persona + Pain Points)
+│           ├── hmw-statement-template.md    # Step 2 output (Core Problem Statement)
+│           └── feedback-matrix-template.md  # Step 5 output (Feedback Matrix + Next Action)
 ├── .skills.json                      # Ecosystem package manifest
 ├── CHANGELOG.md                      # Release history and version tracking
 ├── CONTRIBUTING.md                   # Contribution guidelines

@@ -1,13 +1,18 @@
 {
   "$schema": "https://agentskills.io/schema/skills.json",
   "name": "software-development-helper-skills",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A collection of production-grade agent skills for software engineering tasks, project management, and development workflows.",
   "skills": [
     {
       "name": "kanban-task-breakdown",
       "path": "skills/kanban-task-breakdown",
       "description": "Break down features into standardized Trello/Kanban tickets using WBS principles, 7-component card structure, and status workflows. Supports detailed_mode parameter (less|normal|fully) for output verbosity control."
+    },
+    {
+      "name": "design-thinking",
+      "path": "skills/design-thinking",
+      "description": "Facilitate the 5-step Design Thinking process (Empathize, Define, Ideate, Prototype, Test) to guide users from a vague problem to a validated solution. Step-by-step facilitation for beginners and experts across any domain, with HMW, SCAMPER, and Feedback Matrix frameworks."
     }
   ]
 }

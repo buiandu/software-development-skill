@@ -1,0 +1,17 @@
+# Agent coding assistant files (local-only, not shared)
+.claude/
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+.cursor/
+.cursorrules
+.windsurf/
+.windsurfrules
+.aider*
+.opencode/
+.codeium/
+.continue/
+.github/copilot-instructions.md
+
+# Agent code-intelligence tooling
+.gitnexus/
