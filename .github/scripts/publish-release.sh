@@ -13,8 +13,16 @@ fi
 tag=$1
 notes=$2
 
-if gh release view "$tag" >/dev/null 2>&1; then
+probe_err=$(mktemp)
+trap 'rm -f "$probe_err"' EXIT
+
+if gh release view "$tag" >/dev/null 2>"$probe_err"; then
   gh release edit "$tag" --title "$tag" --notes-file "$notes"
 else
-  gh release create "$tag" --title "$tag" --notes-file "$notes"
+  if ! grep -qi 'not found' "$probe_err"; then
+    cat "$probe_err" >&2
+    echo "::error::Cannot determine whether release $tag exists" >&2
+    exit 1
+  fi
+  gh release create "$tag" --verify-tag --title "$tag" --notes-file "$notes"
 fi
