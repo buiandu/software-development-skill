@@ -6,7 +6,7 @@
 - **Đối tượng sử dụng (Target Persona):** <Vai trò, bối cảnh, tần suất sử dụng>
 - **Mục tiêu cốt lõi (Core Objective):** <Hiện trạng> -> <Trạng thái mong muốn>. <Lý do cần làm bây giờ>
 - **Tiêu chí thành công (Success Metrics):** <Baseline hoặc target>, <timeframe>, <nguồn đo>. Nếu chưa có: TBD (owner: <role>).
-- **Ngoài phạm vi (Out of Scope):** <1-3 mục không nằm trong epic này>
+- **Ngoài phạm vi (Out of Scope):** <1-3 mục không nằm trong epic này>. Lý do: <vì sao loại trừ>.
 
 ## Giả định & Phụ thuộc (Assumptions & Dependencies)
 

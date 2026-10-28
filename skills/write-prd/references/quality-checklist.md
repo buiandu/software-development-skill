@@ -41,6 +41,9 @@ silently ignored.
   limit, permission, and failure behavior are covered where relevant.
 - [ ] Edge cases are explicit at `normal` and `fully`. Pass: each
   capability names at least one unusual condition and its behavior.
+- [ ] `fully` adds error, permission, and limit examples per capability
+  and audit rules. Pass: each capability has all three example lines and
+  business rules include an audit rule.
 
 ## Acceptance
 

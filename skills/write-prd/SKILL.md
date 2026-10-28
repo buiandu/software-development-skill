@@ -93,11 +93,13 @@ Trigger this skill when the user asks to:
    per epic and two to five capabilities per feature. Slice vertically by
    user journey, role, or user-visible state.
 5. **Fill the template.** Use only the selected level's sections. Every
-   capability gets at least one concrete example. Business rules name
-   conditions, precedence, limits, permissions, and failure behavior. When
-   an epic has more than one feature, group UI/UX and Data & Integration
-   content under `### F0x - <Feature Name>`; with one feature, keep the
-   sample shape without that subheading.
+   capability gets at least one concrete example. At `fully`, each
+   capability also gets an error, a permission, and a limit example, and
+   business rules include audit rules. Business rules name conditions,
+   precedence, limits, permissions, and failure behavior. When an epic has
+   more than one feature, group UI/UX and Data & Integration content under
+   `### F0x - <Feature Name>`; with one feature, keep the sample shape
+   without that subheading.
 6. **Self-check.** Run `references/quality-checklist.md`. Fix what can be
    fixed; record anything blocked by missing information as an assumption
    or open question.

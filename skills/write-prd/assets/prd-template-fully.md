@@ -27,11 +27,18 @@
   - **C01 - <Capability Name>:** <Hành vi người dùng quan sát được>
     - *Ví dụ thực tế (Real-world example):* <Tình huống cụ thể>
     - *Trường hợp biên (Edge case):* <Điều kiện bất thường và hành vi mong đợi>
+    - *Ví dụ lỗi (Error example):* <Lỗi đầu vào hoặc lỗi hệ thống và hành vi mong đợi>
+    - *Ví dụ quyền (Permission example):* <Vai trò bị chặn và thông báo>
+    - *Ví dụ giới hạn (Limit example):* <Ngưỡng và hành vi tại hoặc sau ngưỡng>
   - **C02 - <Capability Name>:** <Hành vi người dùng quan sát được>
     - *Ví dụ thực tế (Real-world example):* <Tình huống cụ thể>
     - *Trường hợp biên (Edge case):* <Điều kiện bất thường và hành vi mong đợi>
+    - *Ví dụ lỗi (Error example):* <Lỗi đầu vào hoặc lỗi hệ thống và hành vi mong đợi>
+    - *Ví dụ quyền (Permission example):* <Vai trò bị chặn và thông báo>
+    - *Ví dụ giới hạn (Limit example):* <Ngưỡng và hành vi tại hoặc sau ngưỡng>
 - **Quy tắc / Logic nghiệp vụ (Business Rules):**
   - <Điều kiện, thứ tự ưu tiên, giới hạn, quyền, hành vi khi lỗi>
+  - **Quy tắc audit (Audit Rules):** <Sự kiện cần ghi log, ai xem được, thời gian lưu>
 - **Ngoài phạm vi tính năng (Feature Out of Scope):**
   - <Hành vi hoặc đối tượng không thuộc tính năng này>
 - **Kết quả nghiệm thu (Outcomes & Acceptance):**
