@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [1.2.0] - 2026-10-28
+
+Bundles the never-cut 1.1.0 kanban changes and the new `design-thinking`
+skill; first tagged release.
+
 ### Added
 - New `design-thinking` skill: facilitates the 5-step Design Thinking process (Empathize, Define, Ideate, Prototype, Test) to guide users from a vague problem to a validated solution.
   - `SKILL.md` with core facilitation rules (one step at a time, beginner support, Clear Output + Impact per step) and the agent execution workflow.
