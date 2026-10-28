@@ -63,12 +63,17 @@ jobs:
               echo "::error::$skill/SKILL.md missing 'metadata' section"
               exit 1
             fi
-            if ! grep -q "version:" "$skill/SKILL.md"; then
-              echo "::error::$skill/SKILL.md missing 'version' in metadata"
-              exit 1
-            fi
           done
           echo "All SKILL.md frontmatter validated"
+
+      - name: Validate .skills.json version
+        run: |
+          version=$(jq -r '.version' .skills.json)
+          if ! printf '%s' "$version" | grep -Eq \
+            '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'; then
+            echo "::error::.skills.json version '$version' is not MAJOR.MINOR.PATCH"
+            exit 1
+          fi
 
       - name: Validate .skills.json matches skill directories
         run: |

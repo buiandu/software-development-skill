@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        run: |
+          git fetch --no-tags origin \
+            +refs/heads/main:refs/remotes/origin/main
+
+      - name: Verify tag
+        env:
+          RELEASE_BASE_REF: main
+        run: |
+          bash .github/scripts/verify-release.sh \
+            "$GITHUB_REF_NAME" "$RUNNER_TEMP/release-notes.md"
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash .github/scripts/publish-release.sh \
+            "$GITHUB_REF_NAME" "$RUNNER_TEMP/release-notes.md"

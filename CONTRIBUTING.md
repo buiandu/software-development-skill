@@ -61,7 +61,6 @@ Every skill **MUST** have:
    compatibility: Compatible with all agents adhering to the Agent Skills specification
    metadata:
      author: github-username
-     version: "1.0.0"
      category: project-management|code-quality|testing|documentation|devops|other
    parameters:
      - name: param_name
@@ -95,7 +94,6 @@ Every skill **MUST** have:
 | **Template-Based** | Put reusable content in `assets/`, reference from `SKILL.md` |
 | **Reference Separation** | Deep docs in `references/` (loaded on demand, not in context) |
 | **Cross-Agent** | Avoid agent-specific syntax; use standard markdown |
-| **Versioned** | Bump `metadata.version` on every change (semver) |
 
 ### Template Design
 
@@ -129,8 +127,7 @@ Before submitting a new skill PR:
 
 1. Modify `assets/*.md` files
 2. Update corresponding `references/*.md` if structure changes
-3. Bump `metadata.version` in `SKILL.md` frontmatter
-4. Update `CHANGELOG.md`
+3. Update `CHANGELOG.md` under `[Unreleased]`
 
 ### Adding Parameters
 
@@ -219,14 +216,19 @@ markdownlint-cli2 "**/*.md"
 
 ## Release Process
 
-**Maintainers only:**
+**Maintainers only.** One version covers the whole repository; there are
+no per-skill versions.
 
-1. Update version in `.skills.json` and affected skill `SKILL.md`
-2. Finalize `CHANGELOG.md` for release
-3. Create git tag: `git tag v1.1.0`
-4. Push tag: `git push origin v1.1.0`
-5. GitHub Release created automatically (if workflow configured)
-6. Announce in relevant channels
+1. Bump `.skills.json` `version` to the new `X.Y.Z` (no leading zeros,
+   no `v` prefix).
+2. Move `[Unreleased]` entries in `CHANGELOG.md` into a new
+   `## [X.Y.Z] - YYYY-MM-DD` section.
+3. Merge the change to `main`.
+4. Tag the merge commit: `git tag -a vX.Y.Z -m vX.Y.Z`
+5. Push the tag: `git push origin vX.Y.Z`
+6. The `Release` workflow refuses mismatched tags (format, manifest,
+   changelog, ancestry on `main`) and then publishes the GitHub Release
+   with notes taken from the changelog section.
 
 ---
 
