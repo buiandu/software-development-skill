@@ -88,7 +88,8 @@ jobs:
           # Check each skill directory has entry in .skills.json
           for dir in skills/*/; do
             skill_name=$(basename "$dir")
-            if ! jq -e ".skills[] | select(.path == \"$dir\")" .skills.json > /dev/null; then
+            if ! jq -e --arg path "${dir%/}" \
+              '.skills[] | select(.path == $path)' .skills.json > /dev/null; then
               echo "::error::Skill directory not in .skills.json: $dir"
               exit 1
             fi
