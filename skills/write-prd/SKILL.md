@@ -42,15 +42,15 @@ Trigger this skill when the user asks to:
 
 | Mode | Template | Adds |
 | ---- | -------- | ---- |
-| `less` | `assets/prd-template-less.md` | Requested mini PRD: epic overview, features, UI/UX, data, handoff |
-| `normal` | `assets/prd-template-normal.md` | Assumptions, open questions, priorities, edge cases, full UI states, data mapping and failure behavior |
-| `fully` | `assets/prd-template-fully.md` | Risks, rollout/rollback, analytics, NFRs, traceability, sign-off |
+| `less` | [assets/prd-template-less.md](assets/prd-template-less.md) | Requested mini PRD: epic overview, features, UI/UX, data, handoff |
+| `normal` | [assets/prd-template-normal.md](assets/prd-template-normal.md) | Assumptions, open questions, priorities, edge cases, full UI states, data mapping and failure behavior |
+| `fully` | [assets/prd-template-fully.md](assets/prd-template-fully.md) | Risks, rollout/rollback, analytics, NFRs, traceability, sign-off |
 
 - Default output path: `docs/prd/<slug>.md`.
 - Default language: Vietnamese, with bilingual headings.
-- Reference documents: `references/prd-structure.md`,
-  `references/capability-decomposition.md`,
-  `references/quality-checklist.md`.
+- Reference documents: [references/prd-structure.md](references/prd-structure.md),
+  [references/capability-decomposition.md](references/capability-decomposition.md),
+  [references/quality-checklist.md](references/quality-checklist.md).
 
 ## Core Rules
 
@@ -149,12 +149,16 @@ Never silently upgrade a level.
 
 ## References
 
-- `references/prd-structure.md` - what each section must prove, prompts to
-  ask, good examples, and common mistakes.
-- `references/capability-decomposition.md` - Epic/Feature/Capability/Task
-  boundary, vertical slicing, naming, examples, and anti-patterns.
-- `references/quality-checklist.md` - the pre-output gate with pass
-  conditions.
-- `assets/prd-template-less.md` - mini PRD template.
-- `assets/prd-template-normal.md` - standard template.
-- `assets/prd-template-fully.md` - comprehensive template.
+- [references/prd-structure.md](references/prd-structure.md) - what each
+  section must prove, prompts to ask, good examples, and common mistakes.
+- [references/capability-decomposition.md](references/capability-decomposition.md) -
+  Epic/Feature/Capability/Task boundary, vertical slicing, naming, examples,
+  and anti-patterns.
+- [references/quality-checklist.md](references/quality-checklist.md) - the
+  pre-output gate with pass conditions.
+- [assets/prd-template-less.md](assets/prd-template-less.md) - mini PRD
+  template.
+- [assets/prd-template-normal.md](assets/prd-template-normal.md) - standard
+  template.
+- [assets/prd-template-fully.md](assets/prd-template-fully.md) -
+  comprehensive template.
