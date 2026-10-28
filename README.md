@@ -49,6 +49,14 @@ npx skills add <your-github-username>/software-development-helper-skills -g
 
 When improvements or new skills are committed to this repository, update your local skills using these commands:
 
+Releases are marked with `vX.Y.Z` git tags and a GitHub Release. To check
+which release you installed, compare your copy against the latest tag; to
+pin one specific release, install from its tag path:
+
+```bash
+npx skills add <owner>/<repo>/tree/v1.2.0/skills/<skill>
+```
+
 ### 1. Updating Project Skills
 
 Re-run `npx skills add` to pull the latest version from GitHub:
