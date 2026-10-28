@@ -31,11 +31,13 @@ Describe what currently happens and why it needs improvement.
 Specific changes you'd like to see. Include example before/after if helpful.
 
 ### Before
+
 ```markdown
 Current template snippet or behavior
 ```
 
 ### After
+
 ```markdown
 Proposed template snippet or behavior
 ```
@@ -53,6 +55,7 @@ Why is this improvement valuable? (e.g., clearer for agents, reduces errors, cov
 ## Testing Approach
 
 How should this be validated?
+
 - [ ] Manual template rendering test
 - [ ] Agent prompt test with sample feature
 - [ ] Markdown lint check

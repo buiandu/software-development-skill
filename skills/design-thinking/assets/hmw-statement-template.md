@@ -11,6 +11,7 @@
 > achieve **`[Desire]`**?"
 
 ### Breakdown
+
 - **User:** `<who, from Step 1 persona>`
 - **Pain Point:** `<the core struggle, from Step 1 pain points>`
 - **Desire:** `<the magic-wand wish, from Step 1>`

@@ -26,15 +26,18 @@ git push origin feat/your-change-name
 ## Ways to Contribute
 
 ### 1. Improve Existing Skills
+
 - Fix bugs in templates or logic
 - Enhance reference documentation
 - Add new parameters or verbosity modes
 - Improve agent prompt guidance in `SKILL.md`
 
 ### 2. Add New Skills
+
 Follow the [New Skill Checklist](#new-skill-checklist) below.
 
 ### 3. Improve Repository Infrastructure
+
 - CI/CD pipelines
 - Validation scripts
 - Documentation (README, CONTRIBUTING)
@@ -49,6 +52,7 @@ Follow the [New Skill Checklist](#new-skill-checklist) below.
 Every skill **MUST** have:
 
 1. **`SKILL.md`** with valid frontmatter:
+
    ```yaml
    ---
    name: kebab-case-skill-name
@@ -69,7 +73,8 @@ Every skill **MUST** have:
    ```
 
 2. **Directory Structure**:
-   ```
+
+   ```text
    skills/your-skill-name/
    ├── SKILL.md              # Required: Core instructions + frontmatter
    ├── references/           # Optional: In-depth docs (loaded on demand)
@@ -84,7 +89,7 @@ Every skill **MUST** have:
 ### Writing Effective Skills
 
 | Principle | Guidance |
-|-----------|----------|
+| ----------- | ---------- |
 | **Single Responsibility** | One skill = one coherent capability |
 | **Parameter-Driven** | Use frontmatter `parameters` for options agents can control |
 | **Template-Based** | Put reusable content in `assets/`, reference from `SKILL.md` |
@@ -121,18 +126,21 @@ Before submitting a new skill PR:
 ## Improving Existing Skills
 
 ### Template Updates
+
 1. Modify `assets/*.md` files
 2. Update corresponding `references/*.md` if structure changes
 3. Bump `metadata.version` in `SKILL.md` frontmatter
 4. Update `CHANGELOG.md`
 
 ### Adding Parameters
+
 1. Add to `parameters` in `SKILL.md` frontmatter
 2. Document in `SKILL.md` Execution Workflow
 3. Update templates to use parameter (e.g., `detailed_mode` selection)
 4. Bump version, update CHANGELOG
 
 ### Reference Documentation
+
 - Keep `references/` files focused and linkable
 - Cross-reference from `SKILL.md` Quick Reference section
 - Update when templates change
@@ -143,7 +151,7 @@ Before submitting a new skill PR:
 
 We use [Conventional Commits](https://www.conventionalcommits.org/):
 
-```
+```text
 <type>(<scope>): <description>
 
 [optional body]
@@ -152,6 +160,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 
 **Types:**
+
 - `feat` - New skill or skill capability
 - `fix` - Bug fix in skill/template
 - `docs` - Documentation only (README, references, comments)
@@ -162,7 +171,8 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 **Scope:** Skill name (e.g., `kanban-task-breakdown`) or `repo` for cross-cutting changes.
 
 **Examples:**
-```
+
+```text
 feat(kanban-task-breakdown): add detailed_mode parameter with three levels
 fix(kanban-task-breakdown): correct branch name format in card-template-less.md
 docs(repo): update README with new skill installation instructions
@@ -174,6 +184,7 @@ chore(repo): add GitHub Actions CI workflow
 ## Testing
 
 ### Manual Testing
+
 ```bash
 # Test skill loads correctly
 # 1. Copy skill to test project .agents/skills/
@@ -182,7 +193,9 @@ chore(repo): add GitHub Actions CI workflow
 ```
 
 ### Automated Validation (CI)
+
 The CI pipeline runs:
+
 - `markdownlint` on all `.md` files
 - Skill structure validation (required files, frontmatter schema)
 - Internal link checking
@@ -190,6 +203,7 @@ The CI pipeline runs:
 - Template rendering smoke test
 
 Run locally:
+
 ```bash
 # Install markdownlint
 npm install -g markdownlint-cli2

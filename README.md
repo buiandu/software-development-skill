@@ -90,9 +90,11 @@ npx skills rm kanban-task-breakdown
 ## Team & CI/CD Workflows
 
 ### Option A: Commit `.agents/skills/` (Zero Setup for Teammates)
+
 Commit the `.agents/skills/` directory to git. When team members clone the repo, universal agents (Cursor, OpenCode, Codex, GitHub Copilot) will discover and use the skills automatically.
 
 ### Option B: Reproducible Installs via Lockfile
+
 Use `.skills.json` and `skills-lock.json` to lock skill versions across your team or CI/CD pipelines:
 
 ```bash
@@ -103,7 +105,7 @@ npx skills experimental_install
 
 ## Repository Structure
 
-```
+```text
 software-development-helper-skills/
 ├── .github/
 │   ├── CODEOWNERS                    # Auto-assign reviewers

@@ -7,7 +7,7 @@ This document provides detailed guidelines and strategies for breaking down soft
 ## Feature vs. Task Distinction
 
 | Dimension | Feature (FXX) | Task (XXX) |
-|-----------|---------------|------------|
+| ----------- | --------------- | ------------ |
 | **Scope** | Business goal / User capability | Single technical execution unit |
 | **Duration** | Few days to several weeks | <= 1 working day (5-8 hours max) |
 | **Audience** | Product Manager, Stakeholders, Users | Developers, Tech Leads, QA Testers |
@@ -18,16 +18,19 @@ This document provides detailed guidelines and strategies for breaking down soft
 ## The 3 I's Breakdown Principles (3D Rule)
 
 ### 1. Independent
+
 - Each task should be implementable with minimal dependency on parallel tasks in the same sprint.
 - Enable multiple developers to work concurrently without code conflicts.
 - *Technique:* Use interfaces, contract stubs, or mock data to decouple backend and frontend work.
 
 ### 2. Testable / Measurable
+
 - QA/Testers can verify completion as soon as the task PR is merged.
 - Do not wait for the entire feature to complete before performing test validation.
 - Every task must produce measurable output (API return code, unit test pass, UI element rendered).
 
 ### 3. Sizable / Quantifiable
+
 - Estimate time required accurately before pulling into a sprint.
 - Size limits:
   - **S (Small):** <= 2 hours
@@ -40,9 +43,10 @@ This document provides detailed guidelines and strategies for breaking down soft
 ## Detailed Breakdown Strategies
 
 ### Strategy A: Technical Layer-Based Breakdown
+
 Best for platform infrastructure, backend-heavy systems, or major data refactoring.
 
-```
+```text
 +-------------------------------------------------------+
 | Task 1: DB Schema + ORM Models + Migrations          |
 +-------------------------------------------------------+
@@ -64,6 +68,7 @@ Best for platform infrastructure, backend-heavy systems, or major data refactori
 ```
 
 ### Strategy B: Use-Case / Vertical Slicing Breakdown
+
 Best for Agile feature development, providing end-to-end functionality early.
 
 1. **Task 1: Happy Path Flow**
@@ -77,6 +82,7 @@ Best for Agile feature development, providing end-to-end functionality early.
    - Example: Log login attempts, IP addresses, failed authentication alerts.
 
 ### Strategy C: Data & Configuration Layering
+
 Best for phased integration of third-party APIs or complex data pipelines.
 
 1. **Task 1: Mocked Data Endpoint**
