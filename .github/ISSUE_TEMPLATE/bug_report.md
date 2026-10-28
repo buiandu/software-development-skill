@@ -28,7 +28,7 @@ What should happen instead.
 
 ## Actual Output
 
-```
+```text
 Paste the actual template output, error message, or behavior here
 ```
 

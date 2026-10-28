@@ -8,20 +8,24 @@
 ## User Persona
 
 ### Identity
+
 - **Name:** `<Persona Name>` *(give them a memorable name)*
 - **Age:** `<age>`
 - **Profession:** `<job / role>`
 - **Photo:** *(placeholder)*
 
 ### Context & Habits
+
 - **Daily routines relevant to the problem:**
   - `<habit / context 1>`
   - `<habit / context 2>`
 
 ### Goals
+
 - `<what they are trying to achieve>`
 
 ### Magic-Wand Wish
+
 - `<the ideal outcome if anything were possible>`
 
 ---

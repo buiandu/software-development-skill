@@ -51,11 +51,13 @@ Instead, report them privately via:
 ## Scope
 
 This policy covers:
+
 - Skills in this repository (`skills/`)
 - Installation scripts and CI/CD workflows
 - Documentation that could lead to misconfiguration
 
 This policy does NOT cover:
+
 - Agent applications that consume these skills (Claude Code, Cursor, etc.)
 - User's own code generated using these skills
 - Third-party dependencies of consuming projects

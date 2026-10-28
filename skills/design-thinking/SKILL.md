@@ -60,7 +60,7 @@ Copy-paste deliverable templates are in `assets/`:
 ## 2. The 5-Step Process Overview
 
 | Step | Name | Goal | Clear Output |
-|------|------|------|--------------|
+| ------ | ------ | ------ | -------------- |
 | 0 | Context Setting | Pick the problem/domain to work on | A defined problem statement or chosen topic |
 | 1 | Empathize | Understand the user's pains & needs | User Persona + List of Pain Points |
 | 2 | Define | Frame one focused challenge | HMW Core Problem Statement |

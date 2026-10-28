@@ -9,14 +9,17 @@
 ## Feedback Matrix
 
 ### I like (What works well?)
+
 - `<strength 1>`
 - `<strength 2>`
 
 ### I wish (What is missing or could be better?)
+
 - `<gap / improvement 1>`
 - `<gap / improvement 2>`
 
 ### What if (What happens if we change part X?)
+
 - `<exploration 1>`
 - `<exploration 2>`
 
