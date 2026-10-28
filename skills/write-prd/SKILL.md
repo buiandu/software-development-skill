@@ -5,6 +5,7 @@ license: MIT
 compatibility: Compatible with all agents adhering to the Agent Skills specification (Claude Code, Cursor, OpenCode, GitHub Copilot, Codex, etc.)
 metadata:
   author: open-skills
+  version: "1.0.0"
   category: product-management
 parameters:
   - name: detailed_mode
