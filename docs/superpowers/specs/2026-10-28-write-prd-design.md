@@ -64,10 +64,9 @@ requested sample. The skill mirrors `kanban-task-breakdown`'s
 ## Constraints
 
 - Repository conventions: `SKILL.md` frontmatter must include `name`,
-  `description`, `license`, `metadata`, and `metadata.version` (main's CI
-  checks for `version:`); `parameters` is already used by
-  `kanban-task-breakdown`; supporting material lives in `assets/` and
-  `references/`. This skill declares `1.0.0`.
+  `description`, `license`, and `metadata`; `parameters` is already used
+  by `kanban-task-breakdown`; supporting material lives in `assets/` and
+  `references/`.
 - CI requires every `skills/*/` directory to have an entry in
   `.skills.json`, and every Markdown link in `SKILL.md` to resolve
   relative to the skill directory.
@@ -133,7 +132,6 @@ license: MIT
 compatibility: Compatible with all agents adhering to the Agent Skills specification (Claude Code, Cursor, OpenCode, GitHub Copilot, Codex, etc.)
 metadata:
   author: open-skills
-  version: "1.0.0"
   category: product-management
 parameters:
   - name: detailed_mode
