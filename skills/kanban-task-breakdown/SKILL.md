@@ -5,7 +5,6 @@ license: MIT
 compatibility: Compatible with all agents adhering to the Agent Skills specification (Claude Code, Cursor, OpenCode, GitHub Copilot, Codex, etc.)
 metadata:
   author: open-skills
-  version: "1.1.0"
   category: project-management
 parameters:
   - name: detailed_mode
@@ -30,11 +29,13 @@ A comprehensive guide on Work Breakdown Structure (WBS) principles, standardized
 - **Workflow:** `Backlog/Hold` -> `Ready (DoR)` -> `In Progress` -> `Review/Testing` -> `Done (DoD)`.
 
 Detailed reference files are available in `references/`:
+
 - `references/breakdown-methods.md` - In-depth breakdown strategies (Layer-based, Vertical Slicing, Data/Config).
 - `references/ticket-structure.md` - Complete 7-component structure guidelines and examples.
 - `references/status-workflow.md` - Definition of Ready (DoR), Definition of Done (DoD), and column rules.
 
 Copy-paste templates are available in `assets/` (select based on `detailed_mode` parameter):
+
 - `assets/card-template-less.md` - Condensed template for quick task creation
 - `assets/card-template-normal.md` - Standard template (default)
 - `assets/card-template-fully.md` - Comprehensive template with detailed examples, edge cases, risk assessment, monitoring, and rollback plans
@@ -44,11 +45,13 @@ Copy-paste templates are available in `assets/` (select based on `detailed_mode`
 ## 1. Work Breakdown Structure (WBS) Core Rules
 
 ### The 3 I's Rule (3D Rule)
+
 1. **Independent:** Minimize dependencies so developers can work in parallel.
 2. **Testable:** QA/Testers can verify completion immediately upon delivery.
 3. **Sizable:** Must fit within 1 working day (<= 5-8 hours). Tasks > 8 hours **MUST** be split.
 
 ### Breakdown Approaches Overview
+
 - **Layer-based:** DB Schema -> Service/Repo -> API Endpoint -> UI Component. (Best for platform/backend heavy tasks).
 - **Vertical Slicing:** Happy Path -> Exception Handling -> Audit/Logging. (Best for Agile & early value delivery).
 - **Data & Config:** Mock API $\rightarrow$ Real DB Integration $\rightarrow$ Dynamic Config.
@@ -60,7 +63,8 @@ Copy-paste templates are available in `assets/` (select based on `detailed_mode`
 ## 2. Standard 7-Component Ticket Format
 
 Every card MUST follow this title format:
-```
+
+```text
 [PX-FXX-XXX] - Actionable task title (contains an Action Verb)
 [PX-FXX-XXX] - [UI] Actionable UI task title
 ```
@@ -81,7 +85,7 @@ Every card MUST follow this title format:
 
 ## 3. Status Workflow & Governance
 
-```
+```text
 [Backlog / Hold]  --->  [Ready (DoR)]  --->  [In Progress]  --->  [Review / Testing]  --->  [Done (DoD)]
  (Missing Specs)        (7/7 Completed)      (Max 1-2/dev)          (PR + CI Green)        (Merged + QA Pass)
 ```

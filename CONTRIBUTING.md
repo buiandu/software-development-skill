@@ -26,15 +26,18 @@ git push origin feat/your-change-name
 ## Ways to Contribute
 
 ### 1. Improve Existing Skills
+
 - Fix bugs in templates or logic
 - Enhance reference documentation
 - Add new parameters or verbosity modes
 - Improve agent prompt guidance in `SKILL.md`
 
 ### 2. Add New Skills
+
 Follow the [New Skill Checklist](#new-skill-checklist) below.
 
 ### 3. Improve Repository Infrastructure
+
 - CI/CD pipelines
 - Validation scripts
 - Documentation (README, CONTRIBUTING)
@@ -49,6 +52,7 @@ Follow the [New Skill Checklist](#new-skill-checklist) below.
 Every skill **MUST** have:
 
 1. **`SKILL.md`** with valid frontmatter:
+
    ```yaml
    ---
    name: kebab-case-skill-name
@@ -57,7 +61,6 @@ Every skill **MUST** have:
    compatibility: Compatible with all agents adhering to the Agent Skills specification
    metadata:
      author: github-username
-     version: "1.0.0"
      category: project-management|code-quality|testing|documentation|devops|other
    parameters:
      - name: param_name
@@ -69,7 +72,8 @@ Every skill **MUST** have:
    ```
 
 2. **Directory Structure**:
-   ```
+
+   ```text
    skills/your-skill-name/
    ├── SKILL.md              # Required: Core instructions + frontmatter
    ├── references/           # Optional: In-depth docs (loaded on demand)
@@ -84,13 +88,12 @@ Every skill **MUST** have:
 ### Writing Effective Skills
 
 | Principle | Guidance |
-|-----------|----------|
+| ----------- | ---------- |
 | **Single Responsibility** | One skill = one coherent capability |
 | **Parameter-Driven** | Use frontmatter `parameters` for options agents can control |
 | **Template-Based** | Put reusable content in `assets/`, reference from `SKILL.md` |
 | **Reference Separation** | Deep docs in `references/` (loaded on demand, not in context) |
 | **Cross-Agent** | Avoid agent-specific syntax; use standard markdown |
-| **Versioned** | Bump `metadata.version` on every change (semver) |
 
 ### Template Design
 
@@ -121,18 +124,20 @@ Before submitting a new skill PR:
 ## Improving Existing Skills
 
 ### Template Updates
+
 1. Modify `assets/*.md` files
 2. Update corresponding `references/*.md` if structure changes
-3. Bump `metadata.version` in `SKILL.md` frontmatter
-4. Update `CHANGELOG.md`
+3. Update `CHANGELOG.md` under `[Unreleased]`
 
 ### Adding Parameters
+
 1. Add to `parameters` in `SKILL.md` frontmatter
 2. Document in `SKILL.md` Execution Workflow
 3. Update templates to use parameter (e.g., `detailed_mode` selection)
 4. Bump version, update CHANGELOG
 
 ### Reference Documentation
+
 - Keep `references/` files focused and linkable
 - Cross-reference from `SKILL.md` Quick Reference section
 - Update when templates change
@@ -143,7 +148,7 @@ Before submitting a new skill PR:
 
 We use [Conventional Commits](https://www.conventionalcommits.org/):
 
-```
+```text
 <type>(<scope>): <description>
 
 [optional body]
@@ -152,6 +157,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 
 **Types:**
+
 - `feat` - New skill or skill capability
 - `fix` - Bug fix in skill/template
 - `docs` - Documentation only (README, references, comments)
@@ -162,7 +168,8 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 **Scope:** Skill name (e.g., `kanban-task-breakdown`) or `repo` for cross-cutting changes.
 
 **Examples:**
-```
+
+```text
 feat(kanban-task-breakdown): add detailed_mode parameter with three levels
 fix(kanban-task-breakdown): correct branch name format in card-template-less.md
 docs(repo): update README with new skill installation instructions
@@ -174,6 +181,7 @@ chore(repo): add GitHub Actions CI workflow
 ## Testing
 
 ### Manual Testing
+
 ```bash
 # Test skill loads correctly
 # 1. Copy skill to test project .agents/skills/
@@ -182,7 +190,9 @@ chore(repo): add GitHub Actions CI workflow
 ```
 
 ### Automated Validation (CI)
+
 The CI pipeline runs:
+
 - `markdownlint` on all `.md` files
 - Skill structure validation (required files, frontmatter schema)
 - Internal link checking
@@ -190,6 +200,7 @@ The CI pipeline runs:
 - Template rendering smoke test
 
 Run locally:
+
 ```bash
 # Install markdownlint
 npm install -g markdownlint-cli2
@@ -205,14 +216,19 @@ markdownlint-cli2 "**/*.md"
 
 ## Release Process
 
-**Maintainers only:**
+**Maintainers only.** One version covers the whole repository; there are
+no per-skill versions.
 
-1. Update version in `.skills.json` and affected skill `SKILL.md`
-2. Finalize `CHANGELOG.md` for release
-3. Create git tag: `git tag v1.1.0`
-4. Push tag: `git push origin v1.1.0`
-5. GitHub Release created automatically (if workflow configured)
-6. Announce in relevant channels
+1. Bump `.skills.json` `version` to the new `X.Y.Z` (no leading zeros,
+   no `v` prefix).
+2. Move `[Unreleased]` entries in `CHANGELOG.md` into a new
+   `## [X.Y.Z] - YYYY-MM-DD` section.
+3. Merge the change to `main`.
+4. Tag the merge commit: `git tag -a vX.Y.Z -m vX.Y.Z`
+5. Push the tag: `git push origin vX.Y.Z`
+6. The `Release` workflow refuses mismatched tags (format, manifest,
+   changelog, ancestry on `main`) and then publishes the GitHub Release
+   with notes taken from the changelog section.
 
 ---
 

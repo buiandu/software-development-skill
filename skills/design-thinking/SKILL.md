@@ -5,7 +5,6 @@ license: MIT
 compatibility: Compatible with all agents adhering to the Agent Skills specification (Claude Code, Cursor, OpenCode, GitHub Copilot, Codex, etc.)
 metadata:
   author: open-skills
-  version: "1.0.0"
   category: problem-solving
 ---
 
@@ -61,7 +60,7 @@ Copy-paste deliverable templates are in `assets/`:
 ## 2. The 5-Step Process Overview
 
 | Step | Name | Goal | Clear Output |
-|------|------|------|--------------|
+| ------ | ------ | ------ | -------------- |
 | 0 | Context Setting | Pick the problem/domain to work on | A defined problem statement or chosen topic |
 | 1 | Empathize | Understand the user's pains & needs | User Persona + List of Pain Points |
 | 2 | Define | Frame one focused challenge | HMW Core Problem Statement |

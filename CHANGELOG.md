@@ -9,7 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [1.2.0] - 2026-10-28
+
+Bundles the never-cut 1.1.0 kanban changes and the new `design-thinking`
+skill; first tagged release.
+
 ### Added
+
 - New `design-thinking` skill: facilitates the 5-step Design Thinking process (Empathize, Define, Ideate, Prototype, Test) to guide users from a vague problem to a validated solution.
   - `SKILL.md` with core facilitation rules (one step at a time, beginner support, Clear Output + Impact per step) and the agent execution workflow.
   - `references/step-guides.md` with full per-step facilitation scripts (Steps 0-5).
@@ -20,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Repository documentation updates: Contributing and Security sections in README.md
 
 ### Changed
+
 - Bumped `.skills.json` package version to 1.2.0 and registered the `design-thinking` skill.
 - Updated README.md Available Skills table and Repository Structure to include `design-thinking`.
 - `kanban-task-breakdown` skill version bumped to 1.1.0
@@ -35,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2026-09-01
 
 ### Added
+
 - Initial release of `kanban-task-breakdown` skill complying with the Agent Skills Specification (agentskills.io).
 - Standard 7-component ticket structure (Git Metadata, Technical Scope, Goal, Input, Output, Acceptance Criteria, Scope & Sprint Control).
 - Work Breakdown Structure (WBS) principles: 3 I's Rule (Independent, Testable, Sizable <= 8h).

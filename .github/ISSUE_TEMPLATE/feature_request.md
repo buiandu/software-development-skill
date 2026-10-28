@@ -26,7 +26,7 @@ Any alternative approaches or workarounds you've considered.
 ## Example Usage
 
 <!-- Show how the feature would be used -->
-```
+```text
 # Example prompt to agent:
 "Break down feature X with detailed_mode: fully"
 ```
