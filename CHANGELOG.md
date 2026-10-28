@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- New `write-prd` skill: guides users from a raw feature idea to a
+  Vietnamese-first mini PRD at epic/feature scope.
+  - `SKILL.md` with mode selection, nine-step workflow, validation rules,
+    and filename-safe file output.
+  - `references/prd-structure.md` with section purpose, prompts, examples,
+    and common failures.
+  - `references/capability-decomposition.md` with the vertical-slice
+    method, task boundary, worked examples, and anti-patterns.
+  - `references/quality-checklist.md` with the pre-output acceptance gate.
+  - `assets/` templates for `less` (default), `normal`, and `fully`.
+  - Registration in `.skills.json` and the README skill table/tree.
+
 ---
 
 ## [1.2.0] - 2026-10-28

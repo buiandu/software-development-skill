@@ -13,6 +13,7 @@ A collection of open [Agent Skills](https://agentskills.io) compliant capabiliti
 |-------|-------------|------|
 | **`kanban-task-breakdown`** | Break down features into standardized Trello/Kanban tickets using Work Breakdown Structure (WBS) principles, 7-component card structure, and status workflows. | `skills/kanban-task-breakdown` |
 | **`design-thinking`** | Facilitate the 5-step Design Thinking process (Empathize, Define, Ideate, Prototype, Test) to guide users from a vague problem to a validated solution, using HMW, SCAMPER, and Feedback Matrix frameworks. | `skills/design-thinking` |
+| **`write-prd`** | Guide the user in writing a mini PRD for a feature or epic, covering persona, objective, success metrics, capabilities, business rules, DoD, test criteria, UI/UX, and data needs. Supports `detailed_mode` (`less`, `normal`, `fully`). | `skills/write-prd` |
 
 ---
 
@@ -136,15 +137,25 @@ software-development-helper-skills/
 │   │       ├── card-template-less.md     # Condensed template
 │   │       ├── card-template-normal.md   # Standard template (default)
 │   │       └── card-template-fully.md    # Comprehensive template
-│   └── design-thinking/              # Skill: Design Thinking Facilitator (5-step process)
-│       ├── SKILL.md                  # Core facilitation rules & execution workflow
-│       ├── references/               # In-depth reference materials (loaded on demand)
-│       │   ├── step-guides.md        # Full per-step facilitation scripts (Steps 0-5)
-│       │   └── frameworks.md         # HMW formula, SCAMPER, Feedback Matrix, Persona fields
-│       └── assets/                   # Copy-paste deliverable templates
-│           ├── user-persona-template.md     # Step 1 output (Persona + Pain Points)
-│           ├── hmw-statement-template.md    # Step 2 output (Core Problem Statement)
-│           └── feedback-matrix-template.md  # Step 5 output (Feedback Matrix + Next Action)
+│   ├── design-thinking/              # Skill: Design Thinking Facilitator (5-step process)
+│   │   ├── SKILL.md                  # Core facilitation rules & execution workflow
+│   │   ├── references/               # In-depth reference materials (loaded on demand)
+│   │   │   ├── step-guides.md        # Full per-step facilitation scripts (Steps 0-5)
+│   │   │   └── frameworks.md         # HMW formula, SCAMPER, Feedback Matrix, Persona fields
+│   │   └── assets/                   # Copy-paste deliverable templates
+│   │       ├── user-persona-template.md     # Step 1 output (Persona + Pain Points)
+│   │       ├── hmw-statement-template.md    # Step 2 output (Core Problem Statement)
+│   │       └── feedback-matrix-template.md  # Step 5 output (Feedback Matrix + Next Action)
+│   └── write-prd/                    # Skill: Mini PRD writer (epic/feature scope)
+│       ├── SKILL.md                  # Core instructions, mode rules, filename safety
+│       ├── references/               # In-depth guidance (loaded on demand)
+│       │   ├── prd-structure.md      # Section purpose, prompts, examples, mistakes
+│       │   ├── capability-decomposition.md  # Vertical slicing and task boundary
+│       │   └── quality-checklist.md  # Pre-output acceptance gate
+│       └── assets/                   # Copy-paste PRD templates
+│           ├── prd-template-less.md     # Mini PRD (default)
+│           ├── prd-template-normal.md   # Adds assumptions, edge cases, data contracts
+│           └── prd-template-fully.md    # Adds risks, rollout, analytics, NFR, sign-off
 ├── .skills.json                      # Ecosystem package manifest
 ├── CHANGELOG.md                      # Release history and version tracking
 ├── CONTRIBUTING.md                   # Contribution guidelines
