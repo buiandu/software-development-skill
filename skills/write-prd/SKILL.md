@@ -67,7 +67,9 @@ Trigger this skill when the user asks to:
    first, then ask for corrections and the target filename in the same
    turn.
 6. **NEVER overwrite an existing file without explicit confirmation.**
-   Offer to rename instead.
+   A repeated path or "lưu lại" is not confirmation. Ask a separate
+   yes/no question and wait for the next user turn; offer to rename
+   instead.
 7. **Use only the selected level's template.** Do not silently upgrade or
    downgrade `detailed_mode`.
 8. **Keep level integrity.** `normal` contains every `less` section;
@@ -124,7 +126,9 @@ Never silently upgrade a level.
   extension otherwise.
 - Create missing parent directories, then write with the file tool.
 - If the target exists, ask whether to overwrite or choose another name.
-  Replace it only after an explicit yes.
+  Replace it only after an explicit yes in the next user turn. A filename
+  in the request, a repeated save command, or "lưu lại" is not overwrite
+  confirmation; ask a separate yes/no question and wait.
 - If the user wants to see the PRD without a file, print the Markdown and
   skip writing.
 - Slug rule: lowercase ASCII, words joined by hyphens, no dates, at most 60
