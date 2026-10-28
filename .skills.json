@@ -13,6 +13,11 @@
       "name": "design-thinking",
       "path": "skills/design-thinking",
       "description": "Facilitate the 5-step Design Thinking process (Empathize, Define, Ideate, Prototype, Test) to guide users from a vague problem to a validated solution. Step-by-step facilitation for beginners and experts across any domain, with HMW, SCAMPER, and Feedback Matrix frameworks."
+    },
+    {
+      "name": "write-prd",
+      "path": "skills/write-prd",
+      "description": "Guide the user in writing a mini PRD for a feature or epic with target persona, objective, success metrics, key capabilities, business rules, Definition of Done, test criteria, UI/UX, and data/integration needs. Supports detailed_mode (less|normal|fully)."
     }
   ]
 }
